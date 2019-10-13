@@ -1,0 +1,38 @@
+This is a simple guide to list various ways to run bash scripts at startup:
+
+### Create your startup script using a terminal file editor such as Nano: 
+
+	nano
+
+### Add commands or a script you want to run at startup:
+
+	#!/bin/bash
+	echo “ It worked!” 
+
+### Save the script in Nano:
+
+Press [Ctrl + X] key, then press [Y] to confirm and [Enter] return to the terminal.
+
+[In this example we will save our as “Startup.sh” in case you we already have startup.sh in the folder we are placing it in]
+
+### Move the file from your home folder to /etc/init.d/:
+
+	sudo mv ~/Startup.sh  /etc/init.d/
+
+### Make the script executable:
+
+	sudo chmod 755 /etc/init.d/Startup.sh
+
+### Set the file to run at startup:
+
+	sudo update-rc.d Startup.sh enable
+
+### Reboot your device:
+
+	sudo reboot
+
+### Confirm the script was executed at startup:
+
+A terminal window should be open with the message “ It works” printed. 
+
+If you wish to replace this message with useful commands see our useful commands page for useful commands and usage to modify your startup script.
